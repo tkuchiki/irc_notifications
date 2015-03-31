@@ -95,11 +95,11 @@ require 'socket'
               if v =~ /End of \/NAMES list/ then
                 break
               end
-
-              msg = "#{@@channel} :#{message}"
-              msg = "NOTICE #{msg}" if @@notice
-              sock.puts msg
             end
+            
+            msg = "#{@@channel} :#{message}"
+            msg = "NOTICE #{msg}" if @@notice
+            sock.puts msg
           rescue => e
             puts "Error during IRC notification: #{e.message}"
           ensure
